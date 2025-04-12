@@ -17,6 +17,8 @@ const path = require('path');
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+app.use(express.static('./views')); 
+
 //seedDatabase(); // Uncomment only when you want to reset the database to default
 
 // ============== AUTH MIDDLEWARE ======================
