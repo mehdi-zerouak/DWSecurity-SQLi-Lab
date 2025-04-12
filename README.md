@@ -39,8 +39,6 @@ The focus on simplicity and accessibility makes this tool particularly useful fo
 ## Screenshots
 ![Login screen](./screenshots/login-screen.png)
 ![Main page](./screenshots/blog.png)
-- `screenshots/login-screen.png` - Login screen
-- `screenshots/blog.png` - Main page
 
 ## Installation
 
