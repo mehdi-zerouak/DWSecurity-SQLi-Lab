@@ -1,0 +1,22 @@
+{
+  "name": "td-security",
+  "version": "1.0.0",
+  "description": "A vulnerable website for sql injections made for \"dw secuirty\" university project.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sql-injection",
+    "cybersecurity"
+  ],
+  "author": "mehdi-zerouak",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "sqlite3": "^5.1.7"
+  }
+}
