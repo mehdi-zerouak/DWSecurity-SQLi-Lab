@@ -321,23 +321,3 @@ footer {
     overflow: hidden;
 }
 
-@media (max-width: 900px) {
-    main {
-        grid-template-columns: 1fr;
-    }
-    
-    .new-post {
-        position: static;
-        margin-bottom: 30px;
-    }
-    
-    .header-content {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .search-container {
-        max-width: 100%;
-        margin: 15px 0;
-    }
-}
