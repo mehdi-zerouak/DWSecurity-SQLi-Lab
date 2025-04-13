@@ -105,7 +105,7 @@ The code includes commented out examples of secure alternatives (parameterized q
 ## Demonstration Ideas
 
 1. **Authentication Bypass**: Try using `' OR '1'='1` in the password field
-2. **UNION Attacks**: Use the search function with `' UNION SELECT * FROM users --`
+2. **UNION Attacks**: Use the search function with `' UNION SELECT 'leaked', username, password, id FROM users --`
 3. **Schema Discovery**: Extract table information with `' UNION SELECT sql,null FROM sqlite_master --`
 
 ## License
