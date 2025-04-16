@@ -19,7 +19,7 @@ DWSecurity-SQLi-Lab addresses the need for a **lightweight** SQL injection demon
 
 - Requires minimal setup (just Node.js - no external database servers)
 - Uses an embedded SQLite database for simplicity
-- Can be running in under 60 seconds
+- Can be running in under a minute
 - Shows both vulnerable code and secure alternatives side-by-side
 
 The focus on simplicity and accessibility makes this tool particularly useful for educational environments, quick classroom demonstrations, or individual learning where minimizing setup time is valuable.
