@@ -37,9 +37,8 @@ The focus on simplicity and accessibility makes this tool particularly useful fo
 - JWT authentication with HTTP-only cookies
 
 ## Screenshots
-
-- `screenshots/login-screen.png` - Login screen
-- `screenshots/blog.png` - Main page
+![Login screen](./screenshots/login-screen.png)
+![Main page](./screenshots/blog.png)
 
 ## Installation
 
@@ -106,7 +105,7 @@ The code includes commented out examples of secure alternatives (parameterized q
 ## Demonstration Ideas
 
 1. **Authentication Bypass**: Try using `' OR '1'='1` in the password field
-2. **UNION Attacks**: Use the search function with `' UNION SELECT * FROM users --`
+2. **UNION Attacks**: Use the search function with `' UNION SELECT 'leaked', username, password, id FROM users --`
 3. **Schema Discovery**: Extract table information with `' UNION SELECT sql,null FROM sqlite_master --`
 
 ## License
