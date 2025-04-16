@@ -53,14 +53,11 @@ app.post('/login',(req, res) => {
     // ❌ BAD PRACTICE (Vulnerable to SQL Injection) -----------
     // DO NOT use string concatenation with user inputs in production code
     const query = `SELECT id, username FROM users WHERE username = '${username}'  AND password = '${password}';`;
-    // ✅ SAFE ALTERNATIVE -------------------------------------
-    // always use parameterized queries
-    /*
-    const user = await db.get(`SELECT id, username FROM users WHERE username = $1 AND password = $2;`, {
-        $1 : username,
-        $2 : password
-    });
-    */
+
+    console.log('===============================================');
+    console.log('executed login SQL query: ' + query);
+    console.log('===============================================');
+
     db.get(query, (error, row) => {
         if (row) {
             // generate a jwt token
@@ -77,6 +74,14 @@ app.post('/login',(req, res) => {
             return res.send('Error, invalid username or password');
         }
     });
+    // ✅ SAFE ALTERNATIVE -------------------------------------
+    // always use parameterized queries
+    /*
+    const query = "SELECT id, username FROM users WHERE username = ?  AND password = ?;";
+    db.get(query, [username, password], (error, row) => {
+        ..............
+        });
+    */
 
 });
 
@@ -109,16 +114,19 @@ app.get('/', authenticateMiddleware ,(req,res) => {
         SELECT posts.id, username, title, content 
         FROM users, posts 
         WHERE users.id = posts.user_id 
-        AND (title LIKE '%${userSearchQuery}%' OR content LIKE '%${userSearchQuery}%')
+        AND title LIKE '%${userSearchQuery}%'
         ORDER BY posts.id DESC
         ;`;
+
+        console.log('===============================================');
+        console.log('executed search SQL query: ' + query2);
+        console.log('===============================================');
 
         db.all(query2, (error, rows) => {
             if (error) {
             //  ⚠️❌❌ returning database error codes directly to user..... 
                 return res.send('an error occured in the database\n' + error);
             };
-            console.log(rows);
             data = {'username': req.user.username, 'posts':rows, 'query':userSearchQuery};
             return res.render(path.join(__dirname, 'views/blog.ejs'), data);
         })
@@ -128,9 +136,9 @@ app.get('/', authenticateMiddleware ,(req,res) => {
         //     SELECT username, title, content 
         //     FROM users, posts 
         //     WHERE users.id = posts.user_id 
-        //     AND (title LIKE ? OR content LIKE ?);
+        //     AND title LIKE ?;
         // `;
-        // db.all(query2, [`%${userSearchQuery}%`, `%${userSearchQuery}%`], (error, rows) => {
+        // db.all(query2, [`%${userSearchQuery}%`], (error, rows) => {
         //     ...
         // });
 
@@ -148,6 +156,10 @@ app.post('/create-post', authenticateMiddleware,(req,res) => {
     INSERT INTO posts (title, content, user_id)
     VALUES ("${title}", "${content}", "${author_id}");
     `;
+
+    console.log('===============================================');
+    console.log('executed create post SQL query: ' + query);
+    console.log('===============================================');
 
     db.run(query, (error) => {
         if (error) {
@@ -181,5 +193,5 @@ app.post('/logout', (req,res) => {
 // server listening at port 3000
 
 app.listen(port, () => {
-    console.log('server running at port 3000');
+    console.log('Server running at port 3000');
 })
