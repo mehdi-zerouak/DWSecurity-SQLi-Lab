@@ -4,10 +4,6 @@ A deliberately vulnerable web application designed to demonstrate SQL injection 
 
 ⚠️ **EDUCATIONAL USE ONLY** - This application contains intentional security vulnerabilities.
 
-## Overview
-
-This project was created as part of a university assignment to demonstrate SQL injection vulnerabilities in web applications. It features a simple blog system with user authentication, posting  and search functionality - all vulnerable to SQL injection attacks.
-
 ## Project Background
 
 This application was originally created for a university project that required demonstrating SQL injection vulnerabilities. When searching for existing vulnerable web applications to use, I found that most required complex setups with:
@@ -15,7 +11,7 @@ This application was originally created for a university project that required d
 - Complex configuration steps
 - Multiple dependencies or Docker environments
 
-To address this gap, I developed this lightweight alternative that allows for quick setup and immediate demonstration of SQL injection vulnerabilities.
+To address this gap, I developed this lightweight alternative that allows for quick setup and immediate demonstration of SQL injection vulnerabilities, it features a simple blog system with user authentication, posting  and search functionality - all vulnerable to SQL injection attacks.
 
 ## Why This Project?
 
