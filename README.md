@@ -93,6 +93,11 @@ If you need to reset the database to its default state, simply:
 └── package.json    # Node project configuration
 ```
 
+##  Note
+
+This app **prints the raw SQL query** being executed to the terminal when login/search is attempted. This helps demonstrate how user input affects the query structure and allows for easier debugging and learning.
+
+
 ## Security Notes
 
 This application intentionally demonstrates insecure coding practices:
