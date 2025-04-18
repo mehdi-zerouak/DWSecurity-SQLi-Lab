@@ -4,10 +4,6 @@ A deliberately vulnerable web application designed to demonstrate SQL injection 
 
 ⚠️ **EDUCATIONAL USE ONLY** - This application contains intentional security vulnerabilities.
 
-## Overview
-
-This project was created as part of a university assignment to demonstrate SQL injection vulnerabilities in web applications. It features a simple blog system with user authentication, posting  and search functionality - all vulnerable to SQL injection attacks.
-
 ## Project Background
 
 This application was originally created for a university project that required demonstrating SQL injection vulnerabilities. When searching for existing vulnerable web applications to use, I found that most required complex setups with:
@@ -15,7 +11,7 @@ This application was originally created for a university project that required d
 - Complex configuration steps
 - Multiple dependencies or Docker environments
 
-To address this gap, I developed this lightweight alternative that allows for quick setup and immediate demonstration of SQL injection vulnerabilities.
+To address this gap, I developed this lightweight alternative that allows for quick setup and immediate demonstration of SQL injection vulnerabilities, it features a simple blog system with user authentication, posting  and search functionality - all vulnerable to SQL injection attacks.
 
 ## Why This Project?
 
@@ -23,7 +19,7 @@ DWSecurity-SQLi-Lab addresses the need for a **lightweight** SQL injection demon
 
 - Requires minimal setup (just Node.js - no external database servers)
 - Uses an embedded SQLite database for simplicity
-- Can be running in under 60 seconds
+- Can be running in under a minute
 - Shows both vulnerable code and secure alternatives side-by-side
 
 The focus on simplicity and accessibility makes this tool particularly useful for educational environments, quick classroom demonstrations, or individual learning where minimizing setup time is valuable.
@@ -96,7 +92,7 @@ If you need to reset the database to its default state, simply:
 ##  Note
 
 This app **prints the raw SQL query** being executed to the terminal when login/search is attempted. This helps demonstrate how user input affects the query structure and allows for easier debugging and learning.
-
+![Executed SQL Queries](./screenshots/executed_sql_queries.png)
 
 ## Security Notes
 
@@ -111,7 +107,6 @@ The code includes commented out examples of secure alternatives (parameterized q
 
 1. **Authentication Bypass**: Try using `' OR '1'='1` in the password field
 2. **UNION Attacks**: Use the search function with `' UNION SELECT 'leaked', username, password, id FROM users --`
-3. **Schema Discovery**: Extract table information with `' UNION SELECT sql,null FROM sqlite_master --`
 
 ## License
 
