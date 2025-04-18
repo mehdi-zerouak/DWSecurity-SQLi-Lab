@@ -26,6 +26,8 @@
                 <div class="input-hints">Hint: ' OR '1'='1</div>
             </div>
             
+            <input type="checkbox" onclick="showPassword()"> Show Password
+
             <button type="submit">LOG IN <span class="blink">_</span></button>
         </form>
         
@@ -37,6 +39,17 @@
             01010011 01010001 01001100 00100000 01001001 01101110 01101010 01100101 01100011 01110100 01101001 01101111 01101110
         </div>
     </div>
+
+    <script>
+        function showPassword() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
     
 </body>
 </html>

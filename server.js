@@ -55,11 +55,12 @@ app.post('/login',(req, res) => {
     const query = `SELECT id, username FROM users WHERE username = '${username}'  AND password = '${password}';`;
 
     console.log('===============================================');
-    console.log('executed login SQL query: ' + query);
-    console.log('===============================================');
+    console.log('Executed "LOGIN" SQL query: \n ' + query);
 
     db.get(query, (error, row) => {
         if (row) {
+            console.log('Result: \n user is successfully authenticated');
+            console.log('===============================================');
             // generate a jwt token
             payload = {
                 id: row.id,
@@ -71,6 +72,8 @@ app.post('/login',(req, res) => {
             res.cookie('jwt-token', token, {maxAge: 86400000, httpOnly: true}); // it will last 1 day
             return res.redirect('/');
         } else {
+            console.log('Result: \n failed authenticating the user');
+            console.log('===============================================');
             return res.send('Error, invalid username or password');
         }
     });
@@ -94,8 +97,7 @@ app.get('/', authenticateMiddleware ,(req,res) => {
         SELECT posts.id, username, title, content 
         FROM users, posts 
         WHERE users.id = posts.user_id 
-        ORDER BY posts.id DESC
-        `; // order by posts.id desc meaning show the last added post on top of the list
+        ORDER BY posts.id DESC;`; // order by posts.id desc meaning show the last added post on top of the list
         
         db.all(query1, (error, rows) => {
             if (error) {
@@ -115,12 +117,10 @@ app.get('/', authenticateMiddleware ,(req,res) => {
         FROM users, posts 
         WHERE users.id = posts.user_id 
         AND title LIKE '%${userSearchQuery}%'
-        ORDER BY posts.id DESC
-        ;`;
+        ORDER BY posts.id DESC;`;
 
         console.log('===============================================');
-        console.log('executed search SQL query: ' + query2);
-        console.log('===============================================');
+        console.log('Executed "SEARCH" SQL query: ' + query2);
 
         db.all(query2, (error, rows) => {
             if (error) {
@@ -128,6 +128,8 @@ app.get('/', authenticateMiddleware ,(req,res) => {
                 return res.send('an error occured in the database\n' + error);
             };
             data = {'username': req.user.username, 'posts':rows, 'query':userSearchQuery};
+            console.log('Result: \n searching about posts that their title contains "' + userSearchQuery + '"');
+            console.log('===============================================');
             return res.render(path.join(__dirname, 'views/blog.ejs'), data);
         })
 
@@ -158,14 +160,15 @@ app.post('/create-post', authenticateMiddleware,(req,res) => {
     `;
 
     console.log('===============================================');
-    console.log('executed create post SQL query: ' + query);
-    console.log('===============================================');
+    console.log('Executed "CREATE POST" SQL query:\n ' + query);
 
     db.run(query, (error) => {
         if (error) {
             //  ⚠️❌❌ returning database error codes directly to user..... 
                 return res.send('an error occured in the database\n' + error);
         };
+        console.log('Result:\n successfully created a post');
+        console.log('===============================================');
         return res.redirect('/'); // if everything is fine and posts is successfully created, redirect user to main page
     })
 
