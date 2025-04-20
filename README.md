@@ -2,27 +2,13 @@
 
 A deliberately vulnerable web application designed to demonstrate SQL injection vulnerabilities for educational purposes.
 
-⚠️ **EDUCATIONAL USE ONLY** - This application contains intentional security vulnerabilities.
+⚠️ **WARNING** - This application contains intentional security vulnerabilities.
 
-## Project Background
+## Project Overview
 
-This application was originally created for a university project that required demonstrating SQL injection vulnerabilities. When searching for existing vulnerable web applications to use, I found that most required complex setups with:
-- External database servers like MySQL/MariaDB
-- Complex configuration steps
-- Multiple dependencies or Docker environments
+DWSecurity-SQLi-Lab is a **lightweight** web app built for a **university project** to demonstrate **SQL injection vulnerabilities**. Unlike most existing tools that require complex setups with external databases, multiple dependencies, or Docker, this app uses only Node.js and an embedded SQLite database, making it easy to run in under a minute.
 
-To address this gap, I developed this lightweight alternative that allows for quick setup and immediate demonstration of SQL injection vulnerabilities, it features a simple blog system with user authentication, posting  and search functionality - all vulnerable to SQL injection attacks.
-
-## Why This Project?
-
-DWSecurity-SQLi-Lab addresses the need for a **lightweight** SQL injection demonstration tool that:
-
-- Requires minimal setup (just Node.js - no external database servers)
-- Uses an embedded SQLite database for simplicity
-- Can be running in under a minute
-- Shows both vulnerable code and secure alternatives side-by-side
-
-The focus on simplicity and accessibility makes this tool particularly useful for educational environments, quick classroom demonstrations, or individual learning where minimizing setup time is valuable.
+it features a simple blog system with user authentication, posting  and search functionality, all vulnerable to SQL injection attacks. and it shows both vulnerable code and secure alternatives side-by-side. 
 
 ## Features
 
