@@ -21,6 +21,7 @@ it features a simple blog system with user authentication, posting  and search f
 ## Screenshots
 ![Login screen](./screenshots/login-screen.png)
 ![Main page](./screenshots/blog.png)
+The frontend for this project was generated with AI to quickly prototype the user interface. The focus of this project is on the backend implementation
 
 ## Installation
 
